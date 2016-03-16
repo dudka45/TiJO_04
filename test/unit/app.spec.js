@@ -35,4 +35,24 @@ describe('app', function () {
             expect(app.divide(101, 0)).toEqual(false);
         });
     });
+
+
+
+
+
+    describe('AreaOfTrapezeid', function ()  {
+        it('should return false when h is 0 or less than 0', function (){
+            expect(app.areaOfTrapezoid(5,3,0)).toEqual(0);
+        });
+        it('should return false when a is less than 0', function (){
+            expect(app.areaOfTrapezoid(-2,3,1)).toEqual(false);
+        });
+        it('should return false when b is less than 0', function (){
+            expect(app.areaOfTrapezoid(5,-3,2)).toEqual(false);
+        });
+        it('should return false when h is less than 0', function (){
+            expect(app.areaOfTrapezoid(5,3,-3)).toEqual(false);
+        });
+
+    });
 });
