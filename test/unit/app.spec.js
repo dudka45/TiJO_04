@@ -36,12 +36,32 @@ describe('app', function () {
         });
     });
 
+    describe('getDescendingNumbers function', function () {
+        it('should return false when numberFrom is string', function () {
+            expect(app.getDescendingNumbers('', 3)).toEqual(false);
+        });
+        it('should return false when numberTo is string', function () {
+            expect(app.getDescendingNumbers(4, '')).toEqual(false);
+        });
+        it('should return false when numberFrom and numberTo are strings', function () {
+            expect(app.getDescendingNumbers('', '')).toEqual(false);
+        });
+        it('should return "5 4 3 2 1 0" when numberFrom is 5 and numberTo is 0 ', function () {
+            expect(app.getDescendingNumbers(5, 0)).toEqual('5 4 3 2 1 0');
+        });
+        it('should return "-2 -3 -4" when numberFrom is 5 and numberTo is 0 ', function () {
+            expect(app.getDescendingNumbers(-2, -4)).toEqual('-2 -3 -4');
+        });
+        it('should return false when numberTo is more than numberFrom ', function () {
+            expect(app.getDescendingNumbers(2, 6)).toEqual(false);
+        });
+        it('should return false when numberTo is more than numberFrom ', function () {
+            expect(app.getDescendingNumbers(5, 11)).toEqual(false);
+        });
+    });
 
-
-
-
-    describe('AreaOfTrapezeid', function ()  {
-        it('should return false when h is 0 or less than 0', function (){
+    describe('AreaOfTrapezeid function', function ()  {
+        it('should return 0 when h is 0 or less than 0', function (){
             expect(app.areaOfTrapezoid(5,3,0)).toEqual(0);
         });
         it('should return false when a is less than 0', function (){
@@ -52,6 +72,15 @@ describe('app', function () {
         });
         it('should return false when h is less than 0', function (){
             expect(app.areaOfTrapezoid(5,3,-3)).toEqual(false);
+        });
+        it('should return false when a is string', function (){
+            expect(app.areaOfTrapezoid('',3,0)).toEqual(false);
+        });
+        it('should return false when b is string', function (){
+            expect(app.areaOfTrapezoid(5,'',0)).toEqual(false);
+        });
+        it('should return false when h is string', function (){
+            expect(app.areaOfTrapezoid(5,3,'')).toEqual(false);
         });
 
     });

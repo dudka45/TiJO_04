@@ -3,7 +3,7 @@
     window.app = {
 
         divide: function (a, b) {
-            return a >= 1 && a <= 100 && b < a && b != 0 ? a / b : false;
+            return a >= 1 && a <= 100 && b < a && b !== 0 ? a / b : false;
         },
         getDescendingNumbers: function (numberFrom, numberTo) {
             if (typeof numberFrom === 'number' && typeof numberTo === 'number' && numberFrom > numberTo) {
@@ -24,7 +24,7 @@
             }
             return 0.5 * h * (a + b);
         }
-    }
+    };
 })();
 
 
