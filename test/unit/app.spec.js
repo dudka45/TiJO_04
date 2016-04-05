@@ -82,6 +82,42 @@ describe('app', function () {
         it('should return false when h is string', function (){
             expect(app.areaOfTrapezoid(5,3,'')).toEqual(false);
         });
-
     });
+
+    describe('MaxArray function', function () {
+        it('should return max equal from arrays', function () {
+            expect(app.maxArray([2, -4, 9, 4, 1])).toEqual(9);
+            expect(app.maxArray([2, 12, -6, 0, -10])).toEqual(12);
+        });
+        it('should return false when at lest one element is not a number', function(){
+            expect(app.maxArray([-5, 5, '1', 3, 10])).toEqual(false);
+        });
+        it('should return false when table is empty', function(){
+            expect(app.maxArray([])).toEqual(false);
+            expect(app.maxArray({})).toEqual(false);
+            expect(app.maxArray('')).toEqual(false);
+        });
+    });
+
+    describe('Square Odd', function(){
+        it('should return false when elements is not numbers or strings', function(){
+            expect(app.squareOdd([1, false, 3, 7])).toEqual(false);
+            expect(app.squareOdd([1, true, 3, 7])).toEqual(false);
+            expect(app.squareOdd([3,{}, 3])).toEqual(false);
+        });
+        it('should not change numbers or strings', function(){
+            expect(app.squareOdd(["aa","bb", 2, "cc", 10, "dd"])).toEqual(["aa","bb", 2, "cc", 10, "dd"]);
+        });
+        it('should return false when table is empty', function(){
+            expect(app.squareOdd([])).toEqual(false);
+            expect(app.squareOdd({})).toEqual(false);
+        });
+        it('should return just numbers', function(){
+            expect(app.squareOdd([5,4,3,2,1])).toEqual([25,4,9,2,1]);
+        });
+        it('should return just strings', function(){
+            expect(app.squareOdd(['x','y','z'])).toEqual(['x','y','z']);
+        });
+    });
+
 });
